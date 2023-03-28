@@ -180,7 +180,7 @@ export class MongoBotStorage implements IBotStorage {
                 }
                 const options = { upsert: true };
 
-                db.collection(collection).update({ _id }, doc, options, (err: Error) => {
+               db.collection(c).updateOne({ _id }, { $set: doc }, options, (err) => {
                     if (err) {
                         return reject(err);
                     }
